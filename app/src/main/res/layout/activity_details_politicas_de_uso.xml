@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".DetailsPoliticasDeUso">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:background="@color/colorPrimary"
+                    android:id="@+id/textPDU"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="El siguiente documento enuncia a las políticas de publicación de cualquier sitio que forme parte de la Red Universitaria y que emplean el dominio udg.mx. Los temas que aquí se tratan van de lo general, aplicable para cualquier sitio de la Red, a lo particular del sitio.
+
+Las políticas de publicación de un sitio web  udg.mx, tiene como objetivo presentar contenidos dirigidos hacia todos los integrantes de su comunidad universitaria y público en general, que apoyen a la misión, visión y políticas institucionales de la Universidad de Guadalajara teniendo como resultado, el fortalecimiento de la reputación de nuestra máxima casa de estudios al consolidar la red de sitios web universitarios en la fuente de información institucional oportuna y confiable.
+
+A fin de asegurar el logro de este objetivo, se han definido los siguientes lineamientos generales para la publicación de los sitios web:
+
+Toda la información será verificada por los editores del sitio para garantizar su veracidad, oportunidad y exactitud antes y durante su publicación.
+La información publicada en el sitio deberá ser de utilidad a la comunidad universitaria y siempre buscará destacar los aspectos que favorezcan la buena imagen de la Universidad de Guadalajara, el respeto de los derechos humanos, el fomento de la cultura de la legalidad y bienestar de la sociedad.
+Este sitio será un espacio de expresión democrática de los miembros de la comunidad universitaria, por lo que siempre se privilegiará la difusión de opiniones plurales que se hagan dentro de un marco de respeto, tolerancia e imparcialidad.
+No se podrá hacer ningún tipo de proselitismo de ideas políticas o gremiales, así como no están permitidos los contenidos que promuevan violencia, sectarismo, intolerancia, racismo, vicios ó cualquier acto ilícito.
+Se tiene prohibida la comercialización de los espacios dentro de este sitio web. Si fuese necesario publicar algún contenido especial por una instancia externa a la Universidad de Guadalajara, deberá solicitarse de manera formal a los administradores del sitio, donde deberán especificar las características y duración de dicha publicación. Ningún acuerdo de publicación con una entidad externa podrá ser vitalicio.
+Toda petición de publicación en este sitio, que provenga de las diferentes entidades de la Red Universitaria, deberá solicitarse de manera formal a los administradores del sitio.
+Cada solicitud de publicación deberá incluir los siguientes datos.
+Nombre completo y cargo de quien lo solicita.
+Dependencia a la que se encuentra adscrito.
+Nombre del evento, actividad, así como una breve descripción de un párrafo.
+Duración y vigencia de su publicación.
+Estas políticas de publicación son susceptibles de actualizarse para mejorar el servicio que se ofrece en este sitio web, por lo que se recomienda revisarlas periódicamente en esta misma dirección.
+Esta política es efectiva a partir del 8 de junio de 2010 y fue revisada por la Coordinación General de Tecnologías de Información (CGTI)."/>
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".DetailsDepto"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewImgDepto"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/textNombreDepto"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/ic_hotel_gray_30dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="Nombre:"/>
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:id="@+id/textUbicacionDepto"
+                    android:drawableLeft="@drawable/ic_directions_gray_30dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Ubicación:"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_format_list_bulleted_gray_30dp"
+                    android:textSize="24sp"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="Caracteristicas:"/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:id="@+id/textNumPer"
+                        android:drawableLeft="@drawable/ic_people_outline_black_24dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Cdp"/>
+                    <TextView
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:id="@+id/textNumRoom"
+                        android:drawableLeft="@drawable/ic_door_gray_30dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Hab"/>
+                    <TextView
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:id="@+id/textNumBath"
+                        android:drawableLeft="@drawable/ic_bath_gray_30dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Ban"/>
+
+                </LinearLayout>
+
+
+
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    style="?android:attr/borderlessButtonStyle"
+                                android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_document_gray_30dp"
+                    android:layout_marginHorizontal="50dp"
+                    android:background="@drawable/button_custom"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Ver servicios"
+                    />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
+            android:layout_marginHorizontal="10dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <Button
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:background="@color/colorPrimary"
+
+                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableLeft="@drawable/ic_document_gray_30dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:text="Politicas de uso"/>
+                <Button
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/button_custom"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableLeft="@drawable/ic_document_gray_30dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:text="Politicas de la empresa"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:id="@+id/textCosto"
+            android:drawableLeft="@drawable/ic_monetization_on_gray_40dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="Costo"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rentar"
+            android:id="@+id/buttonRentar"
+            android:background="@color/colorAccent"/>
+    </LinearLayout>
+</ScrollView>
+
+
+
+</LinearLayout>

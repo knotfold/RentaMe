@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content"
+    tools:targetApi="o">
+<android.support.v7.widget.CardView
+    android:layout_marginTop="5dp"
+    android:paddingHorizontal="15dp"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="10dp"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:paddingTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/linearLayoutAllMensajes"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:paddingBottom="10dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Este mensaje debe de verse muy genial oh yeah oh right baby"
+            android:id="@+id/textMensaje"
+            android:paddingHorizontal="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewFecha"
+            android:text="124014-24124-1515-1265236"
+            android:layout_marginHorizontal="20sp"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:id="@+id/textViewIdMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="1sp"/>
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -6,18 +6,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-public class Tab2Message extends Fragment {
+public class Tab2NoDepto extends Fragment {
 
+    Button buttonRegister;
     @Override
     public View onCreateView (LayoutInflater inflater, @Nullable ViewGroup container, Bundle
             savedInstanceState){
-        View rootView = inflater.inflate(R.layout.activity_register, container, false);
+        View rootView = inflater.inflate(R.layout.tab_2_no_depto, container, false);
 
 
 
         return rootView;
 
     }
+
+
 
 }

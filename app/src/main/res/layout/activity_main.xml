@@ -21,23 +21,35 @@
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
+            app:tabTextColor="@color/colorPrimaryDark"
             android:layout_width="match_parent"
+            app:tabSelectedTextColor="@color/colorAccent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"
+                android:text="Buscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem2"
+                android:text="Mi renta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                  />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem3"
+                android:text="chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem4"
+                android:text="Config."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />

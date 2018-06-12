@@ -36,14 +36,16 @@
                android:textColor="@color/colorAccent"/>
            <EditText
                android:layout_marginTop="15dp"
-               android:drawableLeft="@drawable/ic_person_gray_35dp"
+
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:hint="Usuario"
+               android:gravity="center"
+               android:id="@+id/editTextUser"
                android:focusable="false"
-               android:drawablePadding="30dp"
-               android:paddingLeft="90dp"
-               android:paddingRight="90dp"
+               android:textColor="@color/colorPrimaryDark"
+               android:paddingHorizontal="120dp"
+               android:drawableStart="@drawable/ic_person_gray_35dp"
                android:background="@color/colorPrimary"
                android:textSize="20sp"
                android:textColorHint="@color/colorPrimaryDark"
@@ -57,7 +59,8 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:background="@drawable/edit_button_shadow_custom"
-               android:text="Cambiar contraseña"
+               android:text="Ver mis datos"
+               android:id="@+id/buttonModoificar"
                android:textColor="@color/colorPrimaryDark"
                android:paddingHorizontal="40dp"
                android:layout_marginHorizontal="35dp"
@@ -69,11 +72,24 @@
                android:layout_height="wrap_content"
                android:background="@drawable/edit_button_shadow_custom"
                android:text="Métodos de pago"
+               android:id="@+id/buttonMDP"
                android:textColor="@color/colorPrimaryDark"
                android:paddingHorizontal="40dp"
                android:layout_marginHorizontal="35dp"
                style="?android:attr/borderlessButtonStyle"
                android:drawableLeft="@drawable/ic_credit_card_gray_24dp"/>
+
+           <Button
+               style="?android:attr/borderlessButtonStyle"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="10sp"
+               android:layout_marginHorizontal="35dp"
+               android:background="@drawable/edit_button_shadow_custom"
+               android:drawableLeft="@drawable/ic_card_giftcard_black_24dp"
+               android:paddingHorizontal="40dp"
+               android:text="Invita a tus amigos"
+               android:textColor="@color/colorPrimaryDark" />
 
            <Button
                android:layout_marginBottom="10sp"
@@ -86,17 +102,7 @@
                android:layout_marginHorizontal="35dp"
                style="?android:attr/borderlessButtonStyle"
                android:drawableLeft="@drawable/ic_notifications_active_gray_35dp"/>
-           <Button
-               android:layout_marginBottom="10sp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:background="@drawable/edit_button_shadow_custom"
-               android:text="Invita a tus amigos"
-               android:textColor="@color/colorPrimaryDark"
-               android:paddingHorizontal="40dp"
-               android:layout_marginHorizontal="35dp"
-               style="?android:attr/borderlessButtonStyle"
-               android:drawableLeft="@drawable/ic_card_giftcard_black_24dp"/>
+
            <Button
                android:layout_marginBottom="10sp"
                android:layout_width="match_parent"
@@ -119,6 +125,20 @@
                android:layout_marginHorizontal="35dp"
                style="?android:attr/borderlessButtonStyle"
                android:drawableLeft="@drawable/ic_hearing_gray_35dp"/>
+
+           <Button
+               android:layout_marginBottom="10sp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/edit_button_shadow_custom"
+               android:text="Cerrar sesión"
+               android:id="@+id/buttonLogOut"
+               android:textColor="@color/colorPrimaryDark"
+               android:paddingHorizontal="40dp"
+               android:layout_marginHorizontal="35dp"
+               style="?android:attr/borderlessButtonStyle"
+               android:drawableLeft="@drawable/ic_cloud_off_gray_35dp"/>
+
 
        </LinearLayout>
    </ScrollView>

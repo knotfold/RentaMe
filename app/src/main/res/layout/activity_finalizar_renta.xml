@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".FinalizarRenta">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="30dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp">
+        <ScrollView
+            android:background="@drawable/button_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NombreDepa"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/textNombreDepto"
+                    android:layout_marginTop="15dp"
+                    android:textSize="26sp"
+                    android:layout_marginBottom="10dp"/>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginHorizontal="5dp"
+                    android:id="@+id/rvDeptoInContract">
+
+                </android.support.v7.widget.RecyclerView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Costo mensual:"
+                    android:drawableLeft="@drawable/ic_monetization_on_gray_24dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="costo del depa"
+                    android:id="@+id/textCostoDepto"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Costo Final:"
+                    android:drawableLeft="@drawable/ic_monetization_on_gray_24dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="costo del depa"
+                    android:id="@+id/textCostoDeptoFinal"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha inicio de renta:"
+                    android:drawableLeft="@drawable/ic_date_range_gray_24dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha inicio de renta:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:id="@+id/textIniRenta"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha fin de renta:"
+                    android:drawableLeft="@drawable/ic_date_range_gray_24dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha inicio de renta:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:id="@+id/textFinRenta"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Numero de tarjeta a utilizar:"
+                    android:drawableLeft="@drawable/ic_credit_card_gray_24dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Numero de tarjeta:"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:id="@+id/textMDP"
+                    android:layout_marginBottom="20dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:paddingHorizontal="50dp"
+                    android:gravity="center"
+                    android:onClick="pde"
+                    android:id="@+id/buttontyc"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="Terminos y condiciones"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_search"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/buttonConcretarRenta"
+                    android:onClick="finalizar"
+                    android:text="Acepto los terminos y condiciones. Concretar Renta"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

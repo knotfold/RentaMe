@@ -23,6 +23,16 @@ public class ListItemsInmueble {
         ImgUrl = imgUrl;
     }
 
+    public ListItemsInmueble(String IDDepto, String nombre, String costoRenta, String ubicacion, String estado ) {
+        this.IDDepto = IDDepto;
+        Nombre = nombre;
+        CostoRenta = costoRenta;
+        Ubicacion = ubicacion;
+        Estado = estado;
+
+    }
+
+
     public ListItemsInmueble(String nombre, String habitaciones, String banos, String capacidad, String costoRenta, String ubicacion, String estado, String direccion) {
         Nombre = nombre;
         Habitaciones = habitaciones;

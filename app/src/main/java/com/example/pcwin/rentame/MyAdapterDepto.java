@@ -34,13 +34,26 @@ public class MyAdapterDepto extends RecyclerView.Adapter<MyAdapterDepto.ViewHold
     private Context context;
     private List<ListItemsImgDepto> listItemsImgDeptos;
     private boolean logedIn = false;
+    private String hasDepto = "";
+    private String idUser;
+    private String user;
 
-    public static String URL_DATA = "http://iglesiasensalida.000webhostapp.com/ssat/get_departamentov2.php";
+    public static String URL_DATA = "https://rentame.000webhostapp.com/get_departamentov2.php";
 
-    public MyAdapterDepto(List<ListItemsInmueble> listItems, Context context, boolean logedIn) {
+    public MyAdapterDepto(List<ListItemsInmueble> listItems, Context context, boolean logedIn, String hasDepto,String idUser, String user) {
         this.listItems = listItems;
         this.context = context;
         this.logedIn = logedIn;
+        this.hasDepto = hasDepto;
+        this.idUser = idUser;
+        this.user = user;
+    }
+
+    public MyAdapterDepto(List<ListItemsInmueble> listItems, Context context, String hasDepto) {
+        this.listItems = listItems;
+        this.context = context;
+        this.hasDepto = hasDepto;
+
     }
 
 
@@ -60,7 +73,7 @@ public class MyAdapterDepto extends RecyclerView.Adapter<MyAdapterDepto.ViewHold
         final ListItemsInmueble listItemsInmueble = listItems.get(position);
         Picasso.with(context).load(listItemsInmueble.getImgUrl()).into(holder.imageViewImgRVDeptos);
         holder.textViewAllDeptoNombre.setText(listItemsInmueble.getNombre());
-        holder.getTextViewAllDeptoPrecio.setText("$" + listItemsInmueble.getCostoRenta());
+        holder.getTextViewAllDeptoPrecio.setText("$" + listItemsInmueble.getCostoRenta() + " mensuales");
         holder.textViewAllDeptoUbicacion.setText(listItemsInmueble.getUbicacion() + ",");
         holder.textViewAllDeptoEstado.setText(listItemsInmueble.getEstado());
         holder.getTextViewAllDeptoID.setText(listItemsInmueble.getIDDepto());
@@ -77,6 +90,9 @@ public class MyAdapterDepto extends RecyclerView.Adapter<MyAdapterDepto.ViewHold
                 Bundle extras = new Bundle();
                 extras.putString("EXTRA_IdDepto", listItemsInmueble.getIDDepto());
                 extras.putBoolean("logedState", logedIn);
+                extras.putString("idDepto",hasDepto);
+                extras.putString("idUser",idUser);
+                extras.putString("user", user);
                 intent.putExtras(extras);
                 v.getContext().startActivity(intent);
 

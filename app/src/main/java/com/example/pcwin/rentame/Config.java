@@ -8,15 +8,20 @@ package com.example.pcwin.rentame;
         public static final String URL_LOGIN_USER_RESULT_WEB= "https://knotfoldbase.000webhostapp.com/login_user_result.php?NombreCliente=";
         public static final String URL_ADD_COMMENT_WEB= "https://knotfoldbase.000webhostapp.com/add_comment.php";
         public static final String URL_ADD_CLIENTE_WEB= "https://knotfoldbase.000webhostapp.com/add_cliente.php";
-        public static final String URL_ADD_USER_WEB= "http://iglesiasensalida.000webhostapp.com/ssat/add_arrendatario.php";
-        public static final String URL_UPDATE_USER_COMMENT = "https://knotfoldbase.000webhostapp.com/update_user_comment.php";
-        public static final String URL_ADD_RES_WEB= "https://knotfoldbase.000webhostapp.com/add_res.php";
-        public static final String URL_ADD_PROM_WEB= "https://knotfoldbase.000webhostapp.com/add_promo.php ";
+        public static final String URL_ADD_USER_WEB= "https://rentame.000webhostapp.com/add_arrendatario.php";
+        public static final String URL_UPDATE_USER_IDDEPTO = "https://rentame.000webhostapp.com/updateIDDARR.php";
+        public static final String URL_UPDATE_DEPTO_DISPONIBILIDAD = "https://rentame.000webhostapp.com/updatedisponible.php";
+        public static final String URL_ADD_NoCuenta= "https://rentame.000webhostapp.com/add_amp.php";
+        public static final String URL_ADD_Contrato= "https://rentame.000webhostapp.com/add_contrato.php";
+        public static final String URL_ADD_Pagor = "https://rentame.000webhostapp.com/add_pagorenta.php";
+        public static final String URL_ADD_mensaje = "https://rentame.000webhostapp.com/add_mensaje.php";
+        public static final String URL_ADD_PROM_WEB= "https://rentame.000webhostapp.com/add_promo.php ";
 
         //Keys that will be used to send the request to php scripts
 
         //Tabla Cliente
-        public static String KEY_EMP_IdCliente = "IdCliente";
+        public static String KEY_EMP_IDArrendatario = "IDArrendatario";
+        public static String KEY_EMP_IDDepto = "IDDepto";
         public static final String KEY_EMP_NombreUsuario = "Nombre";
         public static final String KEY_EMP_ApellidoP = "ApellidoP";
         public static final String KEY_EMP_ApellidoM = "ApellidoM";
@@ -27,6 +32,27 @@ package com.example.pcwin.rentame;
         public static final String KEY_EMP_Email  = "Email";
         public static final String KEY_EMP_ContrasenaUsuario = "contrasena";
         public static final String KEY_EMP_Sexo  = "Sexo";
+        //Tabla ArrenMpago
+        public static String KEY_EMP_Nocuenta = "NumeroCuenta";
+        public static String KEY_EMP_NombreP = "NomPropieCuenta";
+        public static String KEY_EMP_Codseg = "Codseg";
+        public static String KEY_EMP_Fecha_ArrenMpago = "Fecha";
+        //Tabla pagoRenta
+        public static String KEY_EMP_Monto = "Monto";
+        public static String KEY_EMP_Fecha_PagoR= "Fecha";
+        public static String KEY_EMP_ID_AMP = "IDamp";
+        //Tabla contrato
+        public static String KEY_EMP_FINICIO = "Finicio";
+        public static String KEY_EMP_FFINAL = "Ffinal";
+        public static String KEY_EMP_PAGOM = "Pagom";
+        public static String KEY_EMP_SumTotal = "SumTotal";
+        //Tabla Mensaje
+        public static String KEY_EMP_MENSAJE = "Mensaje";
+        public static String KEY_EMP_FECHA_MENSAJE= "fecha";
+        public static String KEY_EMP_TIPO_MENSAJE = "Tipo";
+
+
+
 
 
 

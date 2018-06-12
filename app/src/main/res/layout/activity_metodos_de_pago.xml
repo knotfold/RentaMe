@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MetodosDePago">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis métodos de pago"
+        android:id="@+id/textIni"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textSize="22sp"/>
+
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:id="@+id/recycleViewMDP"
+    android:layout_height="wrap_content">
+
+</android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonAddMDP"
+        android:background="@drawable/button_search"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Añadir nuevo método de pago"
+        android:layout_marginBottom="15dp"/>
+</LinearLayout>

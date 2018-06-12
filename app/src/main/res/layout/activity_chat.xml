@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_main_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mensajes"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/recycleViewAllMensajes"
+                    android:layout_marginBottom="15dp"
+                    android:paddingBottom="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:id="@+id/buttonSend"
+                    android:background="@drawable/enviar_nara"
+                    android:layout_alignParentRight="true" />
+                <EditText
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:hint="Nuevo mensaje"
+                    android:id="@+id/textMensaje"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryHint"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_search"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+
+
+
+</LinearLayout>

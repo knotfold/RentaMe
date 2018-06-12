@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AddMDP">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:paddingVertical="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="80dp"
+                android:text="Datos de registro método de pago"
+                android:textStyle="bold"
+                android:textSize="22sp"
+
+                android:textColor="@color/colorAccent"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="El llenado de todos los campos con * es indispensable."
+                android:textSize="16sp"
+                android:paddingLeft="35dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="start"
+
+                />
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Numero de tarjeta*"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="start"
+
+                />
+            <EditText
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryHint"
+                android:hint="Ejemplo: 1224124771234567"
+                android:id="@+id/editTextNoCuenta"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/edit_text_custom"
+                android:layout_marginHorizontal="35dp"
+                android:inputType="number"
+                />
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Propietario de la cuenta*"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="start"
+
+                />
+            <EditText
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryHint"
+                android:hint="Ejemplo: Asseburg Vera Guillermo"
+                android:id="@+id/editTextNombreP"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/edit_text_custom"
+                android:layout_marginHorizontal="35dp"
+                android:inputType="textPersonName"
+                />
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Codigo de seguridad*"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="start"
+
+                />
+            <EditText
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimaryHint"
+                android:hint="Ejemplo:123, (parte trasera tarjeta)"
+                android:id="@+id/editTextsecurityCode"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/edit_text_custom"
+                android:layout_marginHorizontal="35dp"
+                android:inputType="number"
+                />
+
+
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de expiración*"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="start"
+
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:hint="Click aquí para seleccionar una fecha"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:id="@+id/tvDate"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginHorizontal="35dp"
+                android:inputType="datetime"
+                android:layout_marginBottom="15dp"
+                />
+
+
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:onClick="AddMeDP"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Agregar nuevo método de pago"
+                android:textSize="16sp"
+                android:id="@+id/buttonAdd"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="15dp"/>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

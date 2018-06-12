@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Seleccione el día de inicio de renta"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Seleccione el día de inicio
+  de renta"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/myDate"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            />
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            >
+
+            <CalendarView
+                android:layout_width="330dp"
+                android:id="@+id/calendarView"
+                android:layout_height="330dp"
+
+
+
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Seleccione el día de fin de renta"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Seleccione el día de fin de renta"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/myDateFinal"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            />
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            >
+
+            <CalendarView
+                android:layout_width="330dp"
+                android:id="@+id/calendarViewFinal"
+                android:layout_height="330dp"
+
+
+
+
+                />
+
+        </LinearLayout>
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Continuar"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
+            android:id="@+id/buttonSearchDate"
+            android:background="@drawable/button_search"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/colorPrimaryDark"/>
+
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

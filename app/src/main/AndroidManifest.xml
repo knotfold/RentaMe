@@ -23,7 +23,21 @@
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".DetailsDepto" />
-        <activity android:name=".DetailsPoliticasDeUso"></activity>
+        <activity android:name=".DetailsPoliticasDeUso" />
+        <activity android:name=".DetailsPoliticasDepto" />
+        <activity android:name=".Renta" />
+        <activity android:name=".MetodosDePago" />
+        <activity android:name=".DetailsServicios" />
+        <activity android:name=".FinalizarRenta" />
+        <activity android:name=".AddMDP" />
+        <activity
+            android:name=".AdminInterface"
+            android:label="@string/title_activity_admin_interface"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".DetailsUsers" />
+        <activity android:name=".Chat" />
+        <activity android:name=".Busqueda" />
+        <activity android:name=".GraphPrediction"></activity>
     </application>
 
 </manifest>

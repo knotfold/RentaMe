@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:id="@+id/textNombreDepto"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="30sp"
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_hotel_gray_30dp"
                     android:layout_marginHorizontal="20dp"
@@ -48,7 +48,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:id="@+id/textUbicacionDepto"
                     android:drawableLeft="@drawable/ic_directions_gray_30dp"
                     android:layout_marginHorizontal="20dp"
@@ -61,7 +61,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="@color/colorPrimary"
             android:layout_height="wrap_content">
@@ -76,19 +76,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_format_list_bulleted_gray_30dp"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     android:layout_marginHorizontal="20dp"
                     android:text="Caracteristicas:"/>
                 <LinearLayout
-                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="15dp"
                     android:layout_height="wrap_content">
                     <TextView
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:drawablePadding="15dp"
                         android:id="@+id/textNumPer"
                         android:drawableLeft="@drawable/ic_people_outline_black_24dp"
                         android:layout_marginHorizontal="20dp"
@@ -98,6 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:drawablePadding="10dp"
                         android:id="@+id/textNumRoom"
                         android:drawableLeft="@drawable/ic_door_gray_30dp"
                         android:layout_marginHorizontal="20dp"
@@ -107,6 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
+                        android:drawablePadding="10dp"
                         android:id="@+id/textNumBath"
                         android:drawableLeft="@drawable/ic_bath_gray_30dp"
                         android:layout_marginHorizontal="20dp"
@@ -123,6 +126,7 @@
                     style="?android:attr/borderlessButtonStyle"
                                 android:layout_marginBottom="10dp"
                     android:textSize="16sp"
+                    android:onClick="detailServices"
                     android:drawableLeft="@drawable/ic_document_gray_30dp"
                     android:layout_marginHorizontal="50dp"
                     android:background="@drawable/button_custom"
@@ -136,11 +140,11 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="1dp"
             app:cardBackgroundColor="@color/colorPrimary"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -156,7 +160,7 @@
                     android:layout_height="50dp"
                     android:textSize="16sp"
                     android:background="@color/colorPrimary"
-
+                    android:onClick="detailsPDUD"
                     style="?android:attr/borderlessButtonStyle"
                     android:drawableLeft="@drawable/ic_document_gray_30dp"
                     android:layout_marginHorizontal="15dp"
@@ -166,6 +170,7 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:textSize="16sp"
+                    android:onClick="detailsPDU"
                     android:background="@drawable/button_custom"
                     style="?android:attr/borderlessButtonStyle"
                     android:drawableLeft="@drawable/ic_document_gray_30dp"
@@ -182,16 +187,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:drawablePadding="5dp"
+            android:paddingVertical="10dp"
             android:id="@+id/textCosto"
             android:drawableLeft="@drawable/ic_monetization_on_gray_40dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="15dp"
             android:text="Costo"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rentar"
+            android:onClick="Rentar"
+            android:textSize="30sp"
             android:id="@+id/buttonRentar"
             android:background="@color/colorAccent"/>
     </LinearLayout>

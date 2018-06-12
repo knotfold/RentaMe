@@ -3,6 +3,7 @@ package com.example.pcwin.rentame;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -31,12 +43,20 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     public boolean logedIn = false;
+    public String hasDepto;
     public String mail;
+    public String IdUsuario;
+    public String user;
+    String noHabitaciones;
+    String capacidadDepto;
+    String noBanos;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -47,12 +67,20 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null)
         {
-            logedIn = bundle.getBoolean("logedState");
-            mail = bundle.getString("mail");
-            Toast.makeText(this, "Las contraseñas coinciden " + mail, Toast.LENGTH_LONG).show();
-        }
-        Intent intent = getIntent();
 
+                logedIn = bundle.getBoolean("logedState");
+                mail = bundle.getString("mail");
+                hasDepto = bundle.getString("idDepto");
+                IdUsuario = bundle.getString("idUser");
+                user = bundle.getString("user");
+                noHabitaciones = bundle.getString("noHabitaciones");
+                capacidadDepto = bundle.getString("capacidadDepto");
+                noBanos = bundle.getString("noBanos");
+
+
+
+
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -68,13 +96,12 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.home);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_message);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_user);
 
 
-
-
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.logo);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.home);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_message);
+        Objects.requireNonNull(tabLayout.getTabAt(3)).setIcon(R.drawable.ic_user);
 
     }
 
@@ -106,6 +133,26 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void busquedaRevertDepto()
+    {
+        noBanos ="";
+        noHabitaciones = "";
+        capacidadDepto = "";
+    }
+
+
+    final Handler handler = new Handler();
+    final Runnable r = new Runnable() {
+        public void run() {
+
+            tab1.listItems.clear();
+            tab1.adapterDepto.notifyDataSetChanged();
+            tab1.loadRecyclerViewData(tab1.URL_REVERT);
+
+        }
+    };
+    Tab1Home tab1;
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -124,34 +171,90 @@ public class MainActivity extends AppCompatActivity {
 
                     Bundle bundle = new Bundle();
                     bundle.putBoolean("logedState", logedIn);
+                    bundle.putString("idDepto",hasDepto);
+                    bundle.putString("idUser",IdUsuario);
+                    bundle.putString("user",user);
+                    bundle.putString("noBanos",noBanos);
+                    bundle.putString("noHabitaciones",noHabitaciones);
+                    bundle.putString("capacidadDepto",capacidadDepto);
                     // set Fragmentclass Arguments
-                    Tab1Home tab1 = new Tab1Home();
+                    tab1  = new Tab1Home();
                     tab1.setArguments(bundle);
                     return tab1;
 
 
                 case 1:
+
+                    busquedaRevertDepto();
                     if(!logedIn)
                     {
                         Tab2LoginPlease tab2 = new Tab2LoginPlease();
+
                         return tab2;
                     }
                     else {
-                        Tab2Message tab2 = new Tab2Message();
-                        return tab2;
+                        if(hasDepto.equals("null"))
+                        {
+                            Bundle mydepto = new Bundle();
+                            mydepto.putString("idDepto",hasDepto);
+                            Tab2NoDepto tab2 = new Tab2NoDepto();
+                            tab2.setArguments(mydepto);
+                            return tab2;
+                        }
+                        else {
+                            Bundle extras = new Bundle();
+                            extras.putString("idDepto", hasDepto);
+                            // set Fragmentclass Arguments
+                            Tab2MyDepto tab2 = new Tab2MyDepto();
+                            tab2.setArguments(extras);
+                            return tab2;
+                        }
                     }
 
 
                 case 2:
+                    handler.postDelayed(r, 1000);
                     if(!logedIn)
                 {
-                    Tab3Login tab3 = new Tab3Login();
+                    Tab2LoginPlease tab3 = new Tab2LoginPlease();
                     return tab3;
                 }
                     else {
-                    Tab3Config tab3 = new Tab3Config();
-                    return tab3;
+                        if (hasDepto!=null)
+                        {
+                           Bundle extras = new Bundle();
+                            extras.putString("idUser", IdUsuario);
+                            Tab3Message tab3 = new Tab3Message();
+                            tab3.setArguments(extras);
+                            return tab3;
+                        }
+                        else {
+                            TabMaintenance tab3 = new TabMaintenance();
+                            return tab3;
+                        }
                 }
+
+                case 3:
+                    busquedaRevertDepto();
+                    if(!logedIn)
+                    {
+
+
+                        // set Fragmentclass Arguments
+                        Tab3Login tab4 = new Tab3Login();
+
+                        return tab4;
+                    }
+                    else {
+                        Bundle login = new Bundle();
+                        login.putString("user",user);
+                        login.putString("idUser",IdUsuario);
+                        login.putString("mail",mail);
+                        login.putString("idDepto",hasDepto);
+                        Tab3Config tab4 = new Tab3Config();
+                        tab4.setArguments(login);
+                        return tab4;
+                    }
 
 
 
@@ -165,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override
@@ -178,10 +281,14 @@ public class MainActivity extends AppCompatActivity {
                     return "RESTAURANTES";
                 case 2:
                     return  "CONFIGURACION";
-
+                case 3:
+                    return  "CONFIGURACION";
             }
 
             return null;
         }
     }
+
+
+
 }

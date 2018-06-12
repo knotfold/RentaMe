@@ -40,15 +40,17 @@
                android:drawableLeft="@drawable/ic_person_gray_35dp"
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:hint="Correo"
+
+               android:hint="Ejemplo: yar@mail.com"
                android:id="@+id/editTextMailLogin"
+
                android:drawablePadding="30dp"
-               android:paddingLeft="90dp"
+               android:paddingLeft="60dp"
                android:textColor="@color/colorPrimaryDark"
-               android:paddingRight="90dp"
+               android:paddingRight="60dp"
                android:background="@color/colorPrimary"
-               android:textSize="20sp"
-               android:textColorHint="@color/colorPrimaryDark"
+               android:textSize="16sp"
+               android:textColorHint="@color/colorPrimaryHint"
                android:inputType="textEmailAddress"
                tools:ignore="LabelFor,RtlCompat"
 
@@ -59,15 +61,19 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:hint="Contraseña"
+
+
                android:id="@+id/editTextPassLogin"
            android:drawablePadding="30dp"
-           android:paddingLeft="90dp"
+           android:paddingLeft="60dp"
+
                android:textColor="@color/colorPrimaryDark"
-               android:textSize="20sp"
+               android:textSize="16sp"
                android:background="@color/colorPrimary"
-           android:textColorHint="@color/colorPrimaryDark"
+           android:textColorHint="@color/colorPrimaryHint"
            android:inputType="textPassword"
            tools:ignore="LabelFor,RtlCompat"
+
                android:layout_marginBottom="15dp"
            />
            <Button

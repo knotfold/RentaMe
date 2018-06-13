@@ -53,10 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimaryHint"
-
                 android:id="@+id/editTextNombre"
-                android:enabled="false"
-                android:focusable="false"
                 android:textColor="@color/colorPrimaryDark"
                 android:focusedByDefault="false"
                 android:layout_marginHorizontal="35dp"
@@ -179,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimaryHint"
-
+                android:hint="aaaaaaaaaaaaa"
                 android:id="@+id/editTextPassComf"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginHorizontal="35dp"

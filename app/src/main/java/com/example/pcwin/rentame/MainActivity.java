@@ -144,10 +144,13 @@ public class MainActivity extends AppCompatActivity {
     final Handler handler = new Handler();
     final Runnable r = new Runnable() {
         public void run() {
+            if(tab1.listItems!=null)
+            {
+                tab1.listItems.clear();
+                tab1.adapterDepto.notifyDataSetChanged();
+                tab1.loadRecyclerViewData(tab1.URL_REVERT);
 
-            tab1.listItems.clear();
-            tab1.adapterDepto.notifyDataSetChanged();
-            tab1.loadRecyclerViewData(tab1.URL_REVERT);
+            }
 
         }
     };

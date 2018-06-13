@@ -15,6 +15,7 @@ package com.example.pcwin.rentame;
         public static final String URL_ADD_Contrato= "https://rentame.000webhostapp.com/add_contrato.php";
         public static final String URL_ADD_Pagor = "https://rentame.000webhostapp.com/add_pagorenta.php";
         public static final String URL_ADD_mensaje = "https://rentame.000webhostapp.com/add_mensaje.php";
+        public static final String URL_UPDate_User = "https://rentame.000webhostapp.com/updateusuario.php";
         public static final String URL_ADD_PROM_WEB= "https://rentame.000webhostapp.com/add_promo.php ";
 
         //Keys that will be used to send the request to php scripts
@@ -32,6 +33,7 @@ package com.example.pcwin.rentame;
         public static final String KEY_EMP_Email  = "Email";
         public static final String KEY_EMP_ContrasenaUsuario = "contrasena";
         public static final String KEY_EMP_Sexo  = "Sexo";
+        public static final String KEY_EMP_IDENTICIACION = "Identificacion";
         //Tabla ArrenMpago
         public static String KEY_EMP_Nocuenta = "NumeroCuenta";
         public static String KEY_EMP_NombreP = "NomPropieCuenta";

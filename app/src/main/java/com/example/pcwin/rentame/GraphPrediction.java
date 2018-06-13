@@ -18,10 +18,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 public class GraphPrediction extends AppCompatActivity {
 
-
+    String fInicio;
+    String fFinal;
+    String pagoMensual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,22 @@ public class GraphPrediction extends AppCompatActivity {
 
     }
 
+    public int compare(Date start, Date end)
+    {
+
+        Calendar startCalendar = new GregorianCalendar();
+        Date startDate = new Date(2013,2,2);
+        Date endDate = new Date(2013,3,2);
+        startCalendar.setTime(start);
+        Calendar endCalendar = new GregorianCalendar();
+        endCalendar.setTime(end);
+
+        int diffYear = endCalendar.get(Calendar.YEAR) - startCalendar.get(Calendar.YEAR);
+        int diffMonth = diffYear * 12 + endCalendar.get(Calendar.MONTH) - startCalendar.get(Calendar.MONTH);
+        return diffMonth;
+    }
+
+
 
     public void loadRecyclerViewData(String url)
     {
@@ -66,7 +88,9 @@ public class GraphPrediction extends AppCompatActivity {
                             for(int i = 0; i<array.length();i++)
                             {
                                 JSONObject o = array.getJSONObject(i);
-                                o.getString("costoRenta");
+                               fInicio = o.getString("Finicio");
+                               fFinal = o.getString("Ffinal");
+                               pagoMensual = o.getString("Pagom");
 
                             }
 

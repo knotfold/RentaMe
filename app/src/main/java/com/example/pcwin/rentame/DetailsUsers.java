@@ -5,10 +5,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -17,6 +20,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,6 +35,9 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.regex.Pattern;
 
 public class DetailsUsers extends AppCompatActivity {
 
@@ -62,6 +69,8 @@ public class DetailsUsers extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+
+    Date endDate = new Date();
 
 
     String URL_DATA= "https://rentame.000webhostapp.com/get_one_user.php?IDArrendatario=";
@@ -155,6 +164,10 @@ public class DetailsUsers extends AppCompatActivity {
             public void onClick(View v) {
                 if(edit)
                 {
+                    if (isAdmin)
+                    {
+                        buttonChat.setVisibility(View.VISIBLE);
+                    }
                     edit = false;
                     buttonEdit.setText("MODIFICAR DATOS");
                     buttonCancelar.setVisibility(View.GONE);
@@ -162,6 +175,8 @@ public class DetailsUsers extends AppCompatActivity {
                     editTextcontrasenaComf.setVisibility(View.GONE);
                     textViewAviso1.setVisibility(View.GONE);
                     radioGroup.setVisibility(View.GONE);
+                    editTextSex.setVisibility(View.VISIBLE);
+                    editTextFechNac.setVisibility(View.VISIBLE);
                     editTextNombre.setEnabled(false);
                     editTextApellidoP.setEnabled(false);
                     editTextApellidoM.setEnabled(false);
@@ -172,6 +187,7 @@ public class DetailsUsers extends AppCompatActivity {
                     editTextTelOf.setEnabled(false);
                     editTextSex.setEnabled(false);
                     editTextFechNac.setEnabled(false);
+                    editTextcontrasenaComf.setEnabled(false);
                     mDisplayDate.setVisibility(View.GONE);
                 }
             }
@@ -186,6 +202,7 @@ public class DetailsUsers extends AppCompatActivity {
                     buttonEdit.setText("ACEPTAR");
                     buttonCancelar.setVisibility(View.VISIBLE);
                     textContraComf.setVisibility(View.VISIBLE);
+                    buttonChat.setVisibility(View.GONE);
                     editTextcontrasenaComf.setVisibility(View.VISIBLE);
                     textViewAviso1.setVisibility(View.VISIBLE);
                     radioGroup.setVisibility(View.VISIBLE);
@@ -197,21 +214,25 @@ public class DetailsUsers extends AppCompatActivity {
                     editTextTel.setEnabled(true);
                     editTextCel.setEnabled(true);
                     editTextTelOf.setEnabled(true);
-                    editTextNombre.setFocusable(true);
-                    editTextApellidoP.setFocusable(true);
-                    editTextApellidoM.setFocusable(true);
-                    editTextcorreo.setFocusable(true);
-                    editTextcontrasena.setFocusable(true);
-                    editTextTel.setFocusable(true);
-                    editTextCel.setFocusable(true);
-                    editTextTelOf.setFocusable(true);
+                    editTextcontrasenaComf.setEnabled(true);
+                    editTextNombre.setFocusableInTouchMode(true);
+                    editTextApellidoP.setFocusableInTouchMode(true);
+                    editTextApellidoM.setFocusableInTouchMode(true);
+                    editTextcorreo.setFocusableInTouchMode(true);
+                    editTextcontrasena.setFocusableInTouchMode(true);
+                    editTextTel.setFocusableInTouchMode(true);
+                    editTextCel.setFocusableInTouchMode(true);
+                    editTextTelOf.setFocusableInTouchMode(true);
+                    editTextcontrasenaComf.setFocusableInTouchMode(true);
                     editTextSex.setVisibility(View.GONE);
                     editTextFechNac.setVisibility(View.GONE);
                     mDisplayDate.setVisibility(View.VISIBLE);
                 }
                 else
                 {
-                    edit = false;
+
+
+                    verificarDatos();
 
                 }
             }
@@ -301,7 +322,7 @@ public class DetailsUsers extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-        editTextcontrasenaComf.setText(editTextcontrasena.getText().toString());
+
 
     }
 
@@ -311,4 +332,306 @@ public class DetailsUsers extends AppCompatActivity {
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
+
+    public void verificarDatos()
+
+
+    {
+
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+        String sex = radioButton.getText().toString();
+        String date = mDisplayDate.getText().toString();
+        String nombre = editTextNombre.getText().toString();
+        String apellidoP = editTextApellidoP.getText().toString();
+        String apellidoM = editTextApellidoM.getText().toString();
+        String correo = editTextcorreo.getText().toString();
+        String tel = editTextTel.getText().toString();
+        String cel = editTextCel.getText().toString();
+        String telOf = editTextTelOf.getText().toString();
+        String contrasena1 = editTextcontrasena.getText().toString();
+        String contrasena2 = editTextcontrasenaComf.getText().toString();
+        if(sex.equals("") || date.equals("") || nombre.equals("") || apellidoP.equals("")
+                || apellidoM.equals("") || correo.equals("") || tel.equals("") || cel.equals("")
+                || contrasena1.equals("") || contrasena2.equals(""))
+        {
+            Toast.makeText(this, "Por favor llene todos los campos, hay campos incompletos", Toast.LENGTH_LONG).show();
+        }
+
+        else
+        {
+            if(!nombre.matches("[a-zA-Z ]+"))
+            {
+                Toast.makeText(this, "El nombre solo puede contener letras", Toast.LENGTH_LONG).show();
+            }
+            else if (!apellidoP.matches("[a-zA-Z ]+") || !apellidoM.matches("[a-zA-Z ]+"))
+            {
+                Toast.makeText(this, "Los apellidos solo pueden contener letras", Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                if(isValidMobile(tel)) {
+
+                    if (isValidMobile(cel))
+                    {
+                        if(telOf.equals(""))
+                        {
+                            if (isValidEmail(correo)) {
+
+                                if (contrasena1.equals(contrasena2)) {
+                                    if(compare(endDate,startDate)<=1882)
+                                    {
+
+                                        updateUser(idUser,date,sex);
+                                        edit = false;
+                                        if(isAdmin)
+                                        {
+                                            buttonChat.setVisibility(View.VISIBLE);
+                                        }
+                                        buttonEdit.setText("MODIFICAR DATOS");
+                                        buttonCancelar.setVisibility(View.GONE);
+                                        textContraComf.setVisibility(View.GONE);
+                                        editTextcontrasenaComf.setVisibility(View.GONE);
+                                        textViewAviso1.setVisibility(View.GONE);
+                                        radioGroup.setVisibility(View.GONE);
+                                        editTextNombre.setEnabled(false);
+                                        editTextApellidoP.setEnabled(false);
+                                        editTextApellidoM.setEnabled(false);
+                                        editTextcorreo.setEnabled(false);
+                                        editTextcontrasena.setEnabled(false);
+                                        editTextTel.setEnabled(false);
+                                        editTextCel.setEnabled(false);
+                                        editTextTelOf.setEnabled(false);
+                                        editTextSex.setEnabled(false);
+                                        editTextFechNac.setEnabled(false);
+                                        editTextcontrasenaComf.setEnabled(false);
+                                        editTextNombre.setFocusable(false);
+                                        editTextApellidoP.setFocusable(false);
+                                        editTextApellidoM.setFocusable(false);
+                                        editTextcorreo.setFocusable(false);
+                                        editTextcontrasena.setFocusable(false);
+                                        editTextcontrasenaComf.setFocusable(false);
+                                        editTextTel.setFocusable(false);
+                                        editTextCel.setFocusable(false);
+                                        editTextTelOf.setFocusable(false);
+                                        mDisplayDate.setVisibility(View.GONE);
+                                        editTextSex.setVisibility(View.VISIBLE);
+                                        editTextFechNac.setVisibility(View.VISIBLE);
+                                        editTextNombre.setText(nombre);
+                                        editTextApellidoP.setText(apellidoP);
+                                        editTextApellidoM.setText(apellidoM);
+                                        editTextcorreo.setText(correo);
+                                        editTextTel.setText(tel);
+                                        editTextCel.setText(cel);
+                                        editTextTelOf.setText(telOf);
+                                        editTextcontrasena.setText(contrasena1);
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(this, "Para completar el registro ustede debe de ser mayor de edad " , Toast.LENGTH_LONG).show();
+                                    }
+
+
+
+
+
+
+                                } else {
+                                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                                }
+                            } else {
+                                Toast.makeText(this, "Dirección de correo no válida", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        else
+                        {
+                            if(isValidMobile(telOf))
+                            {
+                                if (isValidEmail(correo)) {
+
+                                    if (contrasena1.equals(contrasena2)) {
+                                        if(compare(endDate,startDate)<=1882)
+                                        {
+
+                                            updateUser(idUser,date,sex);
+                                            edit = false;
+                                            if(isAdmin)
+                                            {
+                                                buttonChat.setVisibility(View.VISIBLE);
+                                            }
+                                            buttonEdit.setText("MODIFICAR DATOS");
+                                            buttonCancelar.setVisibility(View.GONE);
+                                            textContraComf.setVisibility(View.GONE);
+                                            editTextcontrasenaComf.setVisibility(View.GONE);
+                                            textViewAviso1.setVisibility(View.GONE);
+                                            radioGroup.setVisibility(View.GONE);
+                                            editTextNombre.setEnabled(false);
+                                            editTextApellidoP.setEnabled(false);
+                                            editTextApellidoM.setEnabled(false);
+                                            editTextcorreo.setEnabled(false);
+                                            editTextcontrasena.setEnabled(false);
+                                            editTextTel.setEnabled(false);
+                                            editTextCel.setEnabled(false);
+                                            editTextTelOf.setEnabled(false);
+                                            editTextSex.setEnabled(false);
+                                            editTextFechNac.setEnabled(false);
+                                            editTextcontrasenaComf.setEnabled(false);
+                                            editTextNombre.setFocusable(false);
+                                            editTextApellidoP.setFocusable(false);
+                                            editTextApellidoM.setFocusable(false);
+                                            editTextcorreo.setFocusable(false);
+                                            editTextcontrasena.setFocusable(false);
+                                            editTextcontrasenaComf.setFocusable(false);
+                                            editTextTel.setFocusable(false);
+                                            editTextCel.setFocusable(false);
+                                            editTextTelOf.setFocusable(false);
+                                            mDisplayDate.setVisibility(View.GONE);
+                                            editTextSex.setVisibility(View.VISIBLE);
+                                            editTextFechNac.setVisibility(View.VISIBLE);
+                                            editTextcontrasenaComf.setText("");
+                                            editTextSex.setText(sex);
+                                            editTextFechNac.setText(date);
+                                            editTextSex.setText(sex);
+                                            editTextFechNac.setText(date);
+                                            editTextNombre.setText(nombre);
+                                            editTextApellidoP.setText(apellidoP);
+                                            editTextApellidoM.setText(apellidoM);
+                                            editTextcorreo.setText(correo);
+                                            editTextTel.setText(tel);
+                                            editTextCel.setText(cel);
+                                            editTextTelOf.setText(telOf);
+                                            editTextcontrasena.setText(contrasena1);
+
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(this, "Para completar el registro ustede debe de ser mayor de edad " , Toast.LENGTH_LONG).show();
+                                        }
+
+                                    } else {
+                                        Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                                    }
+                                } else {
+                                    Toast.makeText(this, "Dirección de correo no válida", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                            else {
+                                Toast.makeText(this, "El numero de telefono de oficina no es válido", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "El numero de celular no es válido", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+                else
+                {
+                    Toast.makeText(this, "El numero de telefono no es válido", Toast.LENGTH_LONG).show();
+                }
+            }
+
+
+
+
+
+        }
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+
+    private boolean isValidMobile(String phone) {
+        boolean check=false;
+        if(!Pattern.matches("[a-zA-Z]+", phone)) {
+            if(phone.length() < 6 || phone.length() > 13) {
+                // if(phone.length() != 10) {
+                check = false;
+
+            } else {
+                check = true;
+            }
+        } else {
+            check=false;
+        }
+        return check;
+    }
+
+    public int compare(Date start, Date end)
+    {
+
+        Calendar startCalendar = new GregorianCalendar();
+        Date startDate = new Date(2013,2,2);
+        Date endDate = new Date(2013,3,2);
+        startCalendar.setTime(start);
+        Calendar endCalendar = new GregorianCalendar();
+        endCalendar.setTime(end);
+
+        int diffYear = endCalendar.get(Calendar.YEAR) - startCalendar.get(Calendar.YEAR);
+        int diffMonth = diffYear * 12 + endCalendar.get(Calendar.MONTH) - startCalendar.get(Calendar.MONTH);
+        return diffYear;
+    }
+
+    private void updateUser(final String idUser,final String getDate, final String getSex){
+
+        final String nombre = editTextNombre.getText().toString().trim();
+        final String apellidoP = editTextApellidoP.getText().toString().trim();
+        final String apellidoM = editTextApellidoM.getText().toString().trim();
+        final String correo = editTextcorreo.getText().toString().trim();
+        final String contrasena = editTextcontrasena.getText().toString().trim();
+        final String tel = editTextTel.getText().toString().trim();
+        final String cel = editTextCel.getText().toString().trim();
+        final String telOf = editTextTelOf.getText().toString().trim();
+        final String date = getDate.trim();
+        final String sex = getSex.trim();
+
+
+
+        class UpdateUser extends AsyncTask<Void,Void,String> {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                Toast.makeText(DetailsUsers.this, s, Toast.LENGTH_LONG).show();
+
+
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put(Config.KEY_EMP_IDArrendatario,idUser);
+                hashMap.put(Config.KEY_EMP_NombreUsuario, nombre);
+                hashMap.put(Config.KEY_EMP_ApellidoP, apellidoP);
+                hashMap.put(Config.KEY_EMP_ApellidoM, apellidoM);
+                hashMap.put(Config.KEY_EMP_TCasa, tel);
+                hashMap.put(Config.KEY_EMP_Tcel,cel);
+                hashMap.put(Config.KEY_EMP_TOficina,telOf);
+                hashMap.put(Config.KEY_EMP_FechNac,date);
+                hashMap.put(Config.KEY_EMP_Email,correo);
+                hashMap.put(Config.KEY_EMP_ContrasenaUsuario,contrasena);
+                hashMap.put(Config.KEY_EMP_Sexo,sex);
+                hashMap.put(Config.KEY_EMP_IDENTICIACION,"no");
+
+
+                RequestHandler rh = new RequestHandler();
+
+                String s = rh.sendPostRequest(Config.URL_UPDate_User,hashMap);
+
+                return s;
+            }
+        }
+
+        UpdateUser ue = new UpdateUser();
+        ue.execute();
+    }
+
 }

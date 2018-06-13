@@ -185,7 +185,7 @@ public class Register extends AppCompatActivity {
                             if (isValidEmail(correo)) {
 
                                 if (contrasena1.equals(contrasena2)) {
-                                    if(compare(endDate,startDate)>=18)
+                                    if(compare(endDate,startDate)<=1882)
                                     {
 
                                         addCliente(date, sex);
@@ -214,7 +214,7 @@ public class Register extends AppCompatActivity {
                                 if (isValidEmail(correo)) {
 
                                     if (contrasena1.equals(contrasena2)) {
-                                        if(compare(endDate,startDate)>=18)
+                                        if(compare(endDate,startDate)<=1882)
                                         {
 
                                             addCliente(date, sex);
